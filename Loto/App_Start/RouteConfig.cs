@@ -7,6 +7,8 @@ using System.Web.Routing;
 
 namespace Loto
 {
+
+
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
