@@ -10,6 +10,7 @@ namespace BootstrapMvcSample.Controllers
             TempData.Add(Alerts.ATTENTION, message);
         }
 
+
         public void Success(string message)
         {
             TempData.Add(Alerts.SUCCESS, message);
