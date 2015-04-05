@@ -1,56 +1,35 @@
 @using BootstrapSupport
-@model System.Collections.IEnumerable   
-    <h4>@Model.GetLabel() <small>Listing</small></h4>
-<table class="table table-striped">
-    <caption></caption>
-    <thead>
-        <tr>
-            @foreach (var property in Model.VisibleProperties())
-            {
-                <th>
-                    @property.GetLabel().ToSeparatedWords()
-                </th>
-            }
-            <th></th>
-        </tr>
-    </thead>
-    @{ int index = 0; }
-    @foreach (var model in Model)
-    {
-        ViewData[index.ToString()] = model;
-        <tr>
-            @foreach (var property in model.VisibleProperties())
-            {
-                <td>
-                    @Html.Display(index + "." + property.Name)
-                </td>                    
-            }
-            <td>
-                <div class="btn-group">
-                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        Action
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        @{
-                            @Html.TryPartial("_actions", model)                            
-                            var routevalues = model.GetIdValue();  
-                            <li>@Html.ActionLink("Edit", "Edit", routevalues)</li>
-                            <li>@Html.ActionLink("Details", "Details", routevalues)</li>
-                            <li class="divider"></li>
-                            <li>@Html.ActionLink("Delete", "Delete", routevalues)</li>
-                               
-                        }
-                    </ul>
-                </div>
+@model System.Collections.IEnumerable
+<h4>@Model.GetLabel() <small>Listing</small></h4>
+<br />
 
-            </td>
-        </tr>
-            index++;
-    }
-
-</table>
+<br />
+<a href="#" class="hvr-grow">Add to Basket</a>
+<br />
+<div class="jumbotron">
+    <h1>Super awesome marketing speak!</h1>
+    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    <a class="btn btn-large btn-success" href="#">Sign up today</a>
+</div>
+<hr>
+<div class="row-fluid marketing">
+    <div class="span6">
+        <h4>Subheading</h4>
+        <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+        <h4>Subheading</h4>
+        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+        <h4>Subheading</h4>
+        <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    </div>
+    <div class="span6">
+        <h4>Subheading</h4>
+        <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+        <h4>Subheading</h4>
+        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+        <h4>Subheading</h4>
+        <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    </div>
+</div>
 <p>
-    @Html.ActionLink("Create New", "Create", null, new {@class = "btn"})
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn" })
 </p>
-

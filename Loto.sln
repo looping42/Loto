@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loto", "Loto\Loto.csproj", "{743FFB68-82DF-43EE-AD9C-B9B8B2E649FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loto.Tests", "Loto.Tests\Loto.Tests.csproj", "{F314DDA0-C660-4EE6-B70E-AC19B15E5F04}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{743FFB68-82DF-43EE-AD9C-B9B8B2E649FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{743FFB68-82DF-43EE-AD9C-B9B8B2E649FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{743FFB68-82DF-43EE-AD9C-B9B8B2E649FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F314DDA0-C660-4EE6-B70E-AC19B15E5F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F314DDA0-C660-4EE6-B70E-AC19B15E5F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F314DDA0-C660-4EE6-B70E-AC19B15E5F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F314DDA0-C660-4EE6-B70E-AC19B15E5F04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
