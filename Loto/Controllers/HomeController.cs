@@ -7,10 +7,10 @@ using Models;
 
 namespace BootstrapMvcSample.Controllers
 {
-    public class HomeController : BootstrapBaseController
+    public partial class HomeController : BootstrapBaseController
     {
         private static List<HomeInputModel> _models = ModelIntializer.CreateHomeInputModels();
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
            
             var homeInputModels = _models;                                      
@@ -18,7 +18,7 @@ namespace BootstrapMvcSample.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(HomeInputModel model)
+        public virtual ActionResult Create(HomeInputModel model)
         {
             if (ModelState.IsValid)
             {
@@ -31,12 +31,12 @@ namespace BootstrapMvcSample.Controllers
             return View(model);
         }
 
-        public ActionResult Create()
+        public virtual ActionResult Create()
         {
             return View(new HomeInputModel());
         }
 
-        public ActionResult Delete(int id)
+        public virtual ActionResult Delete(int id)
         {
             _models.Remove(_models.Get(id));
             Information("Your widget was deleted");
@@ -46,13 +46,13 @@ namespace BootstrapMvcSample.Controllers
             }
             return RedirectToAction("index");
         }
-        public ActionResult Edit(int id)
+        public virtual ActionResult Edit(int id)
         {
             var model = _models.Get(id);
             return View("Create", model);
         }
-        [HttpPost]        
-        public ActionResult Edit(HomeInputModel model,int id)
+        [HttpPost]
+        public virtual ActionResult Edit(HomeInputModel model, int id)
         {
             if(ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace BootstrapMvcSample.Controllers
             return View("Create", model);
         }
 
-		public ActionResult Details(int id)
+        public virtual ActionResult Details(int id)
         {
             var model = _models.Get(id);
             return View(model);

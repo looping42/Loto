@@ -6,39 +6,39 @@ using System.Web.Mvc;
 
 namespace BootstrapMvcSample.Controllers
 {
-    public class ExampleLayoutsController : Controller
+    public partial class ExampleLayoutsController : Controller
     {
-        public ActionResult Starter()
+        public virtual ActionResult Starter()
         {
             return View();
         }
 
-        public ActionResult Marketing()
+        public virtual ActionResult Marketing()
         {
             return View();
         }
 
-        public ActionResult Fluid()
+        public virtual ActionResult Fluid()
         {
             return View();
         }
 
-        public ActionResult Narrow()
+        public virtual ActionResult Narrow()
         {
             return View();
         }
 
-        public ActionResult SignIn()
+        public virtual ActionResult SignIn()
         {
             return View();
         }
 
-        public ActionResult StickyFooter()
+        public virtual ActionResult StickyFooter()
         {
             return View("TBD");
         }
 
-        public ActionResult Carousel()
+        public virtual ActionResult Carousel()
         {
             return View("TBD");
         }
