@@ -26,7 +26,7 @@ namespace Loto.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=loto")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=loto;Convert Zero Datetime=True")]
         public string MySqlConnexion {
             get {
                 return ((string)(this["MySqlConnexion"]));

@@ -37,25 +37,11 @@ namespace T4MVC
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string _alerts = "_alerts";
-                public readonly string _BootstrapLayout_basic = "_BootstrapLayout.basic";
-                public readonly string _BootstrapLayout_empty = "_BootstrapLayout.empty";
-                public readonly string _BootstrapLayout_narrow = "_BootstrapLayout.narrow";
-                public readonly string _html5shiv = "_html5shiv";
-                public readonly string _validationSummary = "_validationSummary";
-                public readonly string Create = "Create";
-                public readonly string Details = "Details";
                 public readonly string Index = "Index";
+                public readonly string Menu = "Menu";
             }
-            public readonly string _alerts = "~/Views/shared/_alerts.cshtml";
-            public readonly string _BootstrapLayout_basic = "~/Views/shared/_BootstrapLayout.basic.cshtml";
-            public readonly string _BootstrapLayout_empty = "~/Views/shared/_BootstrapLayout.empty.cshtml";
-            public readonly string _BootstrapLayout_narrow = "~/Views/shared/_BootstrapLayout.narrow.cshtml";
-            public readonly string _html5shiv = "~/Views/shared/_html5shiv.cshtml";
-            public readonly string _validationSummary = "~/Views/shared/_validationSummary.cshtml";
-            public readonly string Create = "~/Views/shared/Create.cshtml";
-            public readonly string Details = "~/Views/shared/Details.cshtml";
             public readonly string Index = "~/Views/shared/Index.cshtml";
+            public readonly string Menu = "~/Views/shared/Menu.cshtml";
         }
     }
 

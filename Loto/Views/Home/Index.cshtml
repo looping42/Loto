@@ -1,0 +1,149 @@
+@model Loto.Models.ResultatModel
+@{
+
+}
+
+<form role="form">
+    ...
+    <div class="checkbox checkbox-success">
+        <input type="checkbox" id="checkbox1">
+        <label for="checkbox1">
+            Check me out
+        </label>
+    </div>
+    ...
+</form>
+<form role="form">
+    ...
+    <div class="radio radio-success">
+        <input type="radio" name="radio2" id="radio3" value="option1">
+        <label for="radio3">
+            One
+        </label>
+    </div>
+    <div class="radio radio-success">
+        <input type="radio" name="radio2" id="radio4" value="option2" checked>
+        <label for="radio4">
+            Two
+        </label>
+    </div>
+    ...
+</form>
+<a href="#" class="hvr-grow">Add to Basket</a>
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion"
+               href="#collapseTwo">
+                Donnée du jour  probabilité
+            </a>
+        </h4>
+        <div class="panel-collapse collapse" id="collapseTwo">
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Date du tirage
+                            </th>
+                            <th>
+                                Boule un
+                            </th>
+                            <th>
+                                Boule deux
+                            </th>
+                            <th>
+                                Boule trois
+                            </th>
+                            <th>
+                                Boule quatre
+                            </th>
+                            <th>
+                                Boule cinq
+                            </th>
+                            <th>
+                                Numéro chance
+                            </th>
+                            <th>
+                                Combinaison gagnante (Ordre croissant)
+                            </th>
+                            <th>
+                                Nombre gagnant au rang 1
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ResultatProba)
+                        {
+
+                            <tr>
+                                <td></td>
+                                @*<td>@item..ToShortDateString()</td>*@
+                                <td>@item.pro_boule1</td>
+                                <td>@item.pro_boule2</td>
+                                <td>@item.pro_boule3</td>
+                                <td>@item.pro_boule4</td>
+                                <td>@item.pro_boule5</td>
+                                <td>@item.pro_numeroChance</td>
+                                <td>@item.pro_numeroJokerplus</td>
+                                <td>@item.pro_combinaisonGagnanteCroissant</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Date du tirage
+            </th>
+            <th>
+                Boule un
+            </th>
+            <th>
+                Boule deux
+            </th>
+            <th>
+                Boule trois
+            </th>
+            <th>
+                Boule quatre
+            </th>
+            <th >
+                Boule cinq
+            </th>
+            <th>
+                Numéro chance
+            </th>
+            <th>
+                Combinaison gagnante (Ordre croissant)
+            </th>
+            <th>
+                Nombre gagnant au rang 1
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ResultatTirage)
+        {
+            <tr>
+                <td class ="success">@item.tir_dateTirage.ToShortDateString()</td>
+                <td>@item.tir_boule1</td>
+                <td>@item.tir_boule2</td>
+                <td>@item.tir_boule3</td>
+                <td>@item.tir_boule4</td>
+                <td>@item.tir_boule5</td>
+                <td>@item.tir_numeroChance</td>
+                <td>@item.tir_combinaisonGagnanteCroissant</td>
+                <td>@item.tir_nbrGagnantRang1</td>
+            </tr>
+        }
+    </tbody>
+</table>

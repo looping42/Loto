@@ -26,9 +26,8 @@ using T4MVC;
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static partial class MVC
 {
-    public static BootstrapMvcSample.Controllers.BootstrapBaseController BootstrapBase = new BootstrapMvcSample.Controllers.T4MVC_BootstrapBaseController();
-    public static BootstrapMvcSample.Controllers.ExampleLayoutsController ExampleLayouts = new BootstrapMvcSample.Controllers.T4MVC_ExampleLayoutsController();
-    public static BootstrapMvcSample.Controllers.HomeController Home = new BootstrapMvcSample.Controllers.T4MVC_HomeController();
+    public static Loto.Controllers.HomeController Home = new Loto.Controllers.T4MVC_HomeController();
+    public static Loto.Controllers.ResultatController Resultat = new Loto.Controllers.T4MVC_ResultatController();
     public static T4MVC.sharedController shared = new T4MVC.sharedController();
 }
 
@@ -46,21 +45,6 @@ namespace T4MVC
     }
 }
 
-[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-internal partial class T4MVC_System_Web_Mvc_ActionResult : System.Web.Mvc.ActionResult, IT4MVCActionResult
-{
-    public T4MVC_System_Web_Mvc_ActionResult(string area, string controller, string action, string protocol = null): base()
-    {
-        this.InitMVCT4Result(area, controller, action, protocol);
-    }
-     
-    public override void ExecuteResult(System.Web.Mvc.ControllerContext context) { }
-    
-    public string Controller { get; set; }
-    public string Action { get; set; }
-    public string Protocol { get; set; }
-    public RouteValueDictionary RouteValueDictionary { get; set; }
-}
 
 
 
@@ -71,6 +55,7 @@ namespace Links
         private const string URLPATH = "~/scripts";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+        public static readonly string bootstrap_table_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table.min.js") ? Url("bootstrap-table.min.js") : Url("bootstrap-table.js");
         public static readonly string bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap.min.js") ? Url("bootstrap.min.js") : Url("bootstrap.js");
         public static readonly string bootstrap_min_js = Url("bootstrap.min.js");
         public static readonly string html5shiv_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/html5shiv.min.js") ? Url("html5shiv.min.js") : Url("html5shiv.js");
@@ -85,9 +70,9 @@ namespace Links
         public static readonly string jquery_validate_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate-vsdoc.min.js") ? Url("jquery.validate-vsdoc.min.js") : Url("jquery.validate-vsdoc.js");
         public static readonly string jquery_validate_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate.min.js") ? Url("jquery.validate.min.js") : Url("jquery.validate.js");
         public static readonly string jquery_validate_min_js = Url("jquery.validate.min.js");
-        public static readonly string jquery_validate_unobtrusive_custom_for_bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate.unobtrusive-custom-for-bootstrap.min.js") ? Url("jquery.validate.unobtrusive-custom-for-bootstrap.min.js") : Url("jquery.validate.unobtrusive-custom-for-bootstrap.js");
         public static readonly string jquery_validate_unobtrusive_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate.unobtrusive.min.js") ? Url("jquery.validate.unobtrusive.min.js") : Url("jquery.validate.unobtrusive.js");
         public static readonly string jquery_validate_unobtrusive_min_js = Url("jquery.validate.unobtrusive.min.js");
+        public static readonly string npm_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/npm.min.js") ? Url("npm.min.js") : Url("npm.js");
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -95,16 +80,141 @@ namespace Links
         private const string URLPATH = "~/Content";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-        public static readonly string body_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/body.min.css") ? Url("body.min.css") : Url("body.css");
+        public static readonly string animate_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/animate.min.css") ? Url("animate.min.css") : Url("animate.css");
              
-        public static readonly string bootstrap_mvc_validation_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-mvc-validation.min.css") ? Url("bootstrap-mvc-validation.min.css") : Url("bootstrap-mvc-validation.css");
+        public static readonly string animate_min_css = Url("animate.min.css");
+        public static readonly string bootstrap_table_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table.min.css") ? Url("bootstrap-table.min.css") : Url("bootstrap-table.css");
              
-        public static readonly string bootstrap_responsive_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-responsive.min.css") ? Url("bootstrap-responsive.min.css") : Url("bootstrap-responsive.css");
+        public static readonly string bootstrap_theme_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-theme.min.css") ? Url("bootstrap-theme.min.css") : Url("bootstrap-theme.css");
              
-        public static readonly string bootstrap_responsive_min_css = Url("bootstrap-responsive.min.css");
-        public static readonly string bootstrap_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap.min.css") ? Url("bootstrap.min.css") : Url("bootstrap.css");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class css {
+            private const string URLPATH = "~/Content/css";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+        }
+    
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class extensions {
+            private const string URLPATH = "~/Content/extensions";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class cookie {
+                private const string URLPATH = "~/Content/extensions/cookie";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_cookie_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-cookie.min.js") ? Url("bootstrap-table-cookie.min.js") : Url("bootstrap-table-cookie.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class editable {
+                private const string URLPATH = "~/Content/extensions/editable";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_editable_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-editable.min.js") ? Url("bootstrap-table-editable.min.js") : Url("bootstrap-table-editable.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class export {
+                private const string URLPATH = "~/Content/extensions/export";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_export_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-export.min.js") ? Url("bootstrap-table-export.min.js") : Url("bootstrap-table-export.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class filter {
+                private const string URLPATH = "~/Content/extensions/filter";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_filter_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-filter.min.js") ? Url("bootstrap-table-filter.min.js") : Url("bootstrap-table-filter.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class filtercontrol {
+                private const string URLPATH = "~/Content/extensions/filtercontrol";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_filtercontrol_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-filtercontrol.min.js") ? Url("bootstrap-table-filtercontrol.min.js") : Url("bootstrap-table-filtercontrol.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class flatJSON {
+                private const string URLPATH = "~/Content/extensions/flatJSON";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_flatJSON_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-flatJSON.min.js") ? Url("bootstrap-table-flatJSON.min.js") : Url("bootstrap-table-flatJSON.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class keyevents {
+                private const string URLPATH = "~/Content/extensions/keyevents";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_keyevents_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-keyevents.min.js") ? Url("bootstrap-table-keyevents.min.js") : Url("bootstrap-table-keyevents.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class mobile {
+                private const string URLPATH = "~/Content/extensions/mobile";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_mobile_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-mobile.min.js") ? Url("bootstrap-table-mobile.min.js") : Url("bootstrap-table-mobile.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class naturalsorting {
+                private const string URLPATH = "~/Content/extensions/naturalsorting";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_naturalsorting_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-naturalsorting.min.js") ? Url("bootstrap-table-naturalsorting.min.js") : Url("bootstrap-table-naturalsorting.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class reorder {
+                private const string URLPATH = "~/Content/extensions/reorder";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_reorder_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-reorder.min.js") ? Url("bootstrap-table-reorder.min.js") : Url("bootstrap-table-reorder.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class resizable {
+                private const string URLPATH = "~/Content/extensions/resizable";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_resizable_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-resizable.min.js") ? Url("bootstrap-table-resizable.min.js") : Url("bootstrap-table-resizable.js");
+                public static readonly string README_md = Url("README.md");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class toolbar {
+                private const string URLPATH = "~/Content/extensions/toolbar";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_table_toolbar_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-toolbar.min.js") ? Url("bootstrap-table-toolbar.min.js") : Url("bootstrap-table-toolbar.js");
+            }
+        
+        }
+    
+        public static readonly string font_awesome_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/font-awesome.min.css") ? Url("font-awesome.min.css") : Url("font-awesome.css");
              
-        public static readonly string bootstrap_min_css = Url("bootstrap.min.css");
+        public static readonly string font_awesome_min_css = Url("font-awesome.min.css");
+        public static readonly string hover_min_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/hover-min.min.css") ? Url("hover-min.min.css") : Url("hover-min.css");
+             
+        public static readonly string hover_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/hover.min.css") ? Url("hover.min.css") : Url("hover.css");
+             
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class images {
             private const string URLPATH = "~/Content/images";
@@ -112,6 +222,402 @@ namespace Links
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
             public static readonly string glyphicons_halflings_white_png = Url("glyphicons-halflings-white.png");
             public static readonly string glyphicons_halflings_png = Url("glyphicons-halflings.png");
+        }
+    
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class less {
+            private const string URLPATH = "~/Content/less";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string _hacks_less = Url("_hacks.less");
+            public static readonly string _mixins_less = Url("_mixins.less");
+            public static readonly string _options_less = Url("_options.less");
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class effects {
+                private const string URLPATH = "~/Content/less/effects";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class _2d_transitions {
+                    private const string URLPATH = "~/Content/less/effects/2d-transitions";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _bob_less = Url("_bob.less");
+                    public static readonly string _bounce_in_less = Url("_bounce-in.less");
+                    public static readonly string _bounce_out_less = Url("_bounce-out.less");
+                    public static readonly string _buzz_out_less = Url("_buzz-out.less");
+                    public static readonly string _buzz_less = Url("_buzz.less");
+                    public static readonly string _float_less = Url("_float.less");
+                    public static readonly string _grow_rotate_less = Url("_grow-rotate.less");
+                    public static readonly string _grow_less = Url("_grow.less");
+                    public static readonly string _hang_less = Url("_hang.less");
+                    public static readonly string _pop_less = Url("_pop.less");
+                    public static readonly string _pulse_grow_less = Url("_pulse-grow.less");
+                    public static readonly string _pulse_shrink_less = Url("_pulse-shrink.less");
+                    public static readonly string _pulse_less = Url("_pulse.less");
+                    public static readonly string _push_less = Url("_push.less");
+                    public static readonly string _rotate_less = Url("_rotate.less");
+                    public static readonly string _shrink_less = Url("_shrink.less");
+                    public static readonly string _sink_less = Url("_sink.less");
+                    public static readonly string _skew_backward_less = Url("_skew-backward.less");
+                    public static readonly string _skew_forward_less = Url("_skew-forward.less");
+                    public static readonly string _skew_less = Url("_skew.less");
+                    public static readonly string _wobble_bottom_less = Url("_wobble-bottom.less");
+                    public static readonly string _wobble_horizontal_less = Url("_wobble-horizontal.less");
+                    public static readonly string _wobble_skew_less = Url("_wobble-skew.less");
+                    public static readonly string _wobble_to_bottom_right_less = Url("_wobble-to-bottom-right.less");
+                    public static readonly string _wobble_to_top_right_less = Url("_wobble-to-top-right.less");
+                    public static readonly string _wobble_top_less = Url("_wobble-top.less");
+                    public static readonly string _wobble_vertical_less = Url("_wobble-vertical.less");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class background_transitions {
+                    private const string URLPATH = "~/Content/less/effects/background-transitions";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _back_pulse_less = Url("_back-pulse.less");
+                    public static readonly string _bounce_to_bottom_less = Url("_bounce-to-bottom.less");
+                    public static readonly string _bounce_to_left_less = Url("_bounce-to-left.less");
+                    public static readonly string _bounce_to_right_less = Url("_bounce-to-right.less");
+                    public static readonly string _bounce_to_top_less = Url("_bounce-to-top.less");
+                    public static readonly string _fade_less = Url("_fade.less");
+                    public static readonly string _radial_in_less = Url("_radial-in.less");
+                    public static readonly string _radial_out_less = Url("_radial-out.less");
+                    public static readonly string _rectangle_in_less = Url("_rectangle-in.less");
+                    public static readonly string _rectangle_out_less = Url("_rectangle-out.less");
+                    public static readonly string _shutter_in_horizontal_less = Url("_shutter-in-horizontal.less");
+                    public static readonly string _shutter_in_vertical_less = Url("_shutter-in-vertical.less");
+                    public static readonly string _shutter_out_horizontal_less = Url("_shutter-out-horizontal.less");
+                    public static readonly string _shutter_out_vertical_less = Url("_shutter-out-vertical.less");
+                    public static readonly string _sweep_to_bottom_less = Url("_sweep-to-bottom.less");
+                    public static readonly string _sweep_to_left_less = Url("_sweep-to-left.less");
+                    public static readonly string _sweep_to_right_less = Url("_sweep-to-right.less");
+                    public static readonly string _sweep_to_top_less = Url("_sweep-to-top.less");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class border_transitions {
+                    private const string URLPATH = "~/Content/less/effects/border-transitions";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _border_fade_less = Url("_border-fade.less");
+                    public static readonly string _hollow_less = Url("_hollow.less");
+                    public static readonly string _outline_in_less = Url("_outline-in.less");
+                    public static readonly string _outline_out_less = Url("_outline-out.less");
+                    public static readonly string _overline_from_center_less = Url("_overline-from-center.less");
+                    public static readonly string _overline_from_left_less = Url("_overline-from-left.less");
+                    public static readonly string _overline_from_right_less = Url("_overline-from-right.less");
+                    public static readonly string _overline_reveal_less = Url("_overline-reveal.less");
+                    public static readonly string _reveal_less = Url("_reveal.less");
+                    public static readonly string _ripple_in_less = Url("_ripple-in.less");
+                    public static readonly string _ripple_out_less = Url("_ripple-out.less");
+                    public static readonly string _round_corners_less = Url("_round-corners.less");
+                    public static readonly string _trim_less = Url("_trim.less");
+                    public static readonly string _underline_from_center_less = Url("_underline-from-center.less");
+                    public static readonly string _underline_from_left_less = Url("_underline-from-left.less");
+                    public static readonly string _underline_from_right_less = Url("_underline-from-right.less");
+                    public static readonly string _underline_reveal_less = Url("_underline-reveal.less");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class curls {
+                    private const string URLPATH = "~/Content/less/effects/curls";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _curl_bottom_left_less = Url("_curl-bottom-left.less");
+                    public static readonly string _curl_bottom_right_less = Url("_curl-bottom-right.less");
+                    public static readonly string _curl_top_left_less = Url("_curl-top-left.less");
+                    public static readonly string _curl_top_right_less = Url("_curl-top-right.less");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class icons {
+                    private const string URLPATH = "~/Content/less/effects/icons";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _icon_back_less = Url("_icon-back.less");
+                    public static readonly string _icon_bob_less = Url("_icon-bob.less");
+                    public static readonly string _icon_bounce_out_less = Url("_icon-bounce-out.less");
+                    public static readonly string _icon_bounce_less = Url("_icon-bounce.less");
+                    public static readonly string _icon_buzz_out_less = Url("_icon-buzz-out.less");
+                    public static readonly string _icon_buzz_less = Url("_icon-buzz.less");
+                    public static readonly string _icon_down_less = Url("_icon-down.less");
+                    public static readonly string _icon_drop_less = Url("_icon-drop.less");
+                    public static readonly string _icon_fade_less = Url("_icon-fade.less");
+                    public static readonly string _icon_float_away_less = Url("_icon-float-away.less");
+                    public static readonly string _icon_float_less = Url("_icon-float.less");
+                    public static readonly string _icon_forward_less = Url("_icon-forward.less");
+                    public static readonly string _icon_grow_rotate_less = Url("_icon-grow-rotate.less");
+                    public static readonly string _icon_grow_less = Url("_icon-grow.less");
+                    public static readonly string _icon_hang_less = Url("_icon-hang.less");
+                    public static readonly string _icon_pop_less = Url("_icon-pop.less");
+                    public static readonly string _icon_pulse_grow_less = Url("_icon-pulse-grow.less");
+                    public static readonly string _icon_pulse_shrink_less = Url("_icon-pulse-shrink.less");
+                    public static readonly string _icon_pulse_less = Url("_icon-pulse.less");
+                    public static readonly string _icon_push_less = Url("_icon-push.less");
+                    public static readonly string _icon_rotate_less = Url("_icon-rotate.less");
+                    public static readonly string _icon_shrink_less = Url("_icon-shrink.less");
+                    public static readonly string _icon_sink_away_less = Url("_icon-sink-away.less");
+                    public static readonly string _icon_sink_less = Url("_icon-sink.less");
+                    public static readonly string _icon_spin_less = Url("_icon-spin.less");
+                    public static readonly string _icon_up_less = Url("_icon-up.less");
+                    public static readonly string _icon_wobble_horizontal_less = Url("_icon-wobble-horizontal.less");
+                    public static readonly string _icon_wobble_vertical_less = Url("_icon-wobble-vertical.less");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class shadow_and_glow_transitions {
+                    private const string URLPATH = "~/Content/less/effects/shadow-and-glow-transitions";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _box_shadow_inset_less = Url("_box-shadow-inset.less");
+                    public static readonly string _box_shadow_outset_less = Url("_box-shadow-outset.less");
+                    public static readonly string _float_shadow_less = Url("_float-shadow.less");
+                    public static readonly string _glow_less = Url("_glow.less");
+                    public static readonly string _grow_shadow_less = Url("_grow-shadow.less");
+                    public static readonly string _shadow_radial_less = Url("_shadow-radial.less");
+                    public static readonly string _shadow_less = Url("_shadow.less");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class speech_bubbles {
+                    private const string URLPATH = "~/Content/less/effects/speech-bubbles";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _bubble_bottom_less = Url("_bubble-bottom.less");
+                    public static readonly string _bubble_float_bottom_less = Url("_bubble-float-bottom.less");
+                    public static readonly string _bubble_float_left_less = Url("_bubble-float-left.less");
+                    public static readonly string _bubble_float_right_less = Url("_bubble-float-right.less");
+                    public static readonly string _bubble_float_top_less = Url("_bubble-float-top.less");
+                    public static readonly string _bubble_left_less = Url("_bubble-left.less");
+                    public static readonly string _bubble_right_less = Url("_bubble-right.less");
+                    public static readonly string _bubble_top_less = Url("_bubble-top.less");
+                }
+            
+            }
+        
+            public static readonly string hover_less = Url("hover.less");
+        }
+    
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class locale {
+            private const string URLPATH = "~/Content/locale";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string bootstrap_table_ar_SA_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-ar-SA.min.js") ? Url("bootstrap-table-ar-SA.min.js") : Url("bootstrap-table-ar-SA.js");
+            public static readonly string bootstrap_table_cs_CZ_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-cs-CZ.min.js") ? Url("bootstrap-table-cs-CZ.min.js") : Url("bootstrap-table-cs-CZ.js");
+            public static readonly string bootstrap_table_da_DK_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-da-DK.min.js") ? Url("bootstrap-table-da-DK.min.js") : Url("bootstrap-table-da-DK.js");
+            public static readonly string bootstrap_table_de_DE_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-de-DE.min.js") ? Url("bootstrap-table-de-DE.min.js") : Url("bootstrap-table-de-DE.js");
+            public static readonly string bootstrap_table_el_GR_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-el-GR.min.js") ? Url("bootstrap-table-el-GR.min.js") : Url("bootstrap-table-el-GR.js");
+            public static readonly string bootstrap_table_en_US_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-en-US.min.js") ? Url("bootstrap-table-en-US.min.js") : Url("bootstrap-table-en-US.js");
+            public static readonly string bootstrap_table_en_US_js_template = Url("bootstrap-table-en-US.js.template");
+            public static readonly string bootstrap_table_es_AR_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-es-AR.min.js") ? Url("bootstrap-table-es-AR.min.js") : Url("bootstrap-table-es-AR.js");
+            public static readonly string bootstrap_table_es_CR_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-es-CR.min.js") ? Url("bootstrap-table-es-CR.min.js") : Url("bootstrap-table-es-CR.js");
+            public static readonly string bootstrap_table_es_MX_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-es-MX.min.js") ? Url("bootstrap-table-es-MX.min.js") : Url("bootstrap-table-es-MX.js");
+            public static readonly string bootstrap_table_es_NI_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-es-NI.min.js") ? Url("bootstrap-table-es-NI.min.js") : Url("bootstrap-table-es-NI.js");
+            public static readonly string bootstrap_table_es_SP_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-es-SP.min.js") ? Url("bootstrap-table-es-SP.min.js") : Url("bootstrap-table-es-SP.js");
+            public static readonly string bootstrap_table_fr_BE_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-fr-BE.min.js") ? Url("bootstrap-table-fr-BE.min.js") : Url("bootstrap-table-fr-BE.js");
+            public static readonly string bootstrap_table_fr_FR_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-fr-FR.min.js") ? Url("bootstrap-table-fr-FR.min.js") : Url("bootstrap-table-fr-FR.js");
+            public static readonly string bootstrap_table_hu_HU_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-hu-HU.min.js") ? Url("bootstrap-table-hu-HU.min.js") : Url("bootstrap-table-hu-HU.js");
+            public static readonly string bootstrap_table_it_IT_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-it-IT.min.js") ? Url("bootstrap-table-it-IT.min.js") : Url("bootstrap-table-it-IT.js");
+            public static readonly string bootstrap_table_ja_JP_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-ja-JP.min.js") ? Url("bootstrap-table-ja-JP.min.js") : Url("bootstrap-table-ja-JP.js");
+            public static readonly string bootstrap_table_ka_GE_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-ka-GE.min.js") ? Url("bootstrap-table-ka-GE.min.js") : Url("bootstrap-table-ka-GE.js");
+            public static readonly string bootstrap_table_ko_KR_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-ko-KR.min.js") ? Url("bootstrap-table-ko-KR.min.js") : Url("bootstrap-table-ko-KR.js");
+            public static readonly string bootstrap_table_ms_MY_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-ms-MY.min.js") ? Url("bootstrap-table-ms-MY.min.js") : Url("bootstrap-table-ms-MY.js");
+            public static readonly string bootstrap_table_nb_NO_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-nb-NO.min.js") ? Url("bootstrap-table-nb-NO.min.js") : Url("bootstrap-table-nb-NO.js");
+            public static readonly string bootstrap_table_nl_NL_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-nl-NL.min.js") ? Url("bootstrap-table-nl-NL.min.js") : Url("bootstrap-table-nl-NL.js");
+            public static readonly string bootstrap_table_pl_PL_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-pl-PL.min.js") ? Url("bootstrap-table-pl-PL.min.js") : Url("bootstrap-table-pl-PL.js");
+            public static readonly string bootstrap_table_pt_BR_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-pt-BR.min.js") ? Url("bootstrap-table-pt-BR.min.js") : Url("bootstrap-table-pt-BR.js");
+            public static readonly string bootstrap_table_pt_PT_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-pt-PT.min.js") ? Url("bootstrap-table-pt-PT.min.js") : Url("bootstrap-table-pt-PT.js");
+            public static readonly string bootstrap_table_ro_RO_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-ro-RO.min.js") ? Url("bootstrap-table-ro-RO.min.js") : Url("bootstrap-table-ro-RO.js");
+            public static readonly string bootstrap_table_ru_RU_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-ru-RU.min.js") ? Url("bootstrap-table-ru-RU.min.js") : Url("bootstrap-table-ru-RU.js");
+            public static readonly string bootstrap_table_sk_SK_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-sk-SK.min.js") ? Url("bootstrap-table-sk-SK.min.js") : Url("bootstrap-table-sk-SK.js");
+            public static readonly string bootstrap_table_sv_SE_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-sv-SE.min.js") ? Url("bootstrap-table-sv-SE.min.js") : Url("bootstrap-table-sv-SE.js");
+            public static readonly string bootstrap_table_th_TH_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-th-TH.min.js") ? Url("bootstrap-table-th-TH.min.js") : Url("bootstrap-table-th-TH.js");
+            public static readonly string bootstrap_table_tr_TR_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-tr-TR.min.js") ? Url("bootstrap-table-tr-TR.min.js") : Url("bootstrap-table-tr-TR.js");
+            public static readonly string bootstrap_table_uk_UA_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-uk-UA.min.js") ? Url("bootstrap-table-uk-UA.min.js") : Url("bootstrap-table-uk-UA.js");
+            public static readonly string bootstrap_table_ur_PK_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-ur-PK.min.js") ? Url("bootstrap-table-ur-PK.min.js") : Url("bootstrap-table-ur-PK.js");
+            public static readonly string bootstrap_table_vi_VN_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-vi-VN.min.js") ? Url("bootstrap-table-vi-VN.min.js") : Url("bootstrap-table-vi-VN.js");
+            public static readonly string bootstrap_table_zh_CN_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-zh-CN.min.js") ? Url("bootstrap-table-zh-CN.min.js") : Url("bootstrap-table-zh-CN.js");
+            public static readonly string bootstrap_table_zh_TW_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-table-zh-TW.min.js") ? Url("bootstrap-table-zh-TW.min.js") : Url("bootstrap-table-zh-TW.js");
+            public static readonly string README_md = Url("README.md");
+        }
+    
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class scss {
+            private const string URLPATH = "~/Content/scss";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string _hacks_scss = Url("_hacks.scss");
+            public static readonly string _mixins_scss = Url("_mixins.scss");
+            public static readonly string _options_scss = Url("_options.scss");
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class effects {
+                private const string URLPATH = "~/Content/scss/effects";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class _2d_transitions {
+                    private const string URLPATH = "~/Content/scss/effects/2d-transitions";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _bob_scss = Url("_bob.scss");
+                    public static readonly string _bounce_in_scss = Url("_bounce-in.scss");
+                    public static readonly string _bounce_out_scss = Url("_bounce-out.scss");
+                    public static readonly string _buzz_out_scss = Url("_buzz-out.scss");
+                    public static readonly string _buzz_scss = Url("_buzz.scss");
+                    public static readonly string _float_scss = Url("_float.scss");
+                    public static readonly string _grow_rotate_scss = Url("_grow-rotate.scss");
+                    public static readonly string _grow_scss = Url("_grow.scss");
+                    public static readonly string _hang_scss = Url("_hang.scss");
+                    public static readonly string _pop_scss = Url("_pop.scss");
+                    public static readonly string _pulse_grow_scss = Url("_pulse-grow.scss");
+                    public static readonly string _pulse_shrink_scss = Url("_pulse-shrink.scss");
+                    public static readonly string _pulse_scss = Url("_pulse.scss");
+                    public static readonly string _push_scss = Url("_push.scss");
+                    public static readonly string _rotate_scss = Url("_rotate.scss");
+                    public static readonly string _shrink_scss = Url("_shrink.scss");
+                    public static readonly string _sink_scss = Url("_sink.scss");
+                    public static readonly string _skew_backward_scss = Url("_skew-backward.scss");
+                    public static readonly string _skew_forward_scss = Url("_skew-forward.scss");
+                    public static readonly string _skew_scss = Url("_skew.scss");
+                    public static readonly string _wobble_bottom_scss = Url("_wobble-bottom.scss");
+                    public static readonly string _wobble_horizontal_scss = Url("_wobble-horizontal.scss");
+                    public static readonly string _wobble_skew_scss = Url("_wobble-skew.scss");
+                    public static readonly string _wobble_to_bottom_right_scss = Url("_wobble-to-bottom-right.scss");
+                    public static readonly string _wobble_to_top_right_scss = Url("_wobble-to-top-right.scss");
+                    public static readonly string _wobble_top_scss = Url("_wobble-top.scss");
+                    public static readonly string _wobble_vertical_scss = Url("_wobble-vertical.scss");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class background_transitions {
+                    private const string URLPATH = "~/Content/scss/effects/background-transitions";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _back_pulse_scss = Url("_back-pulse.scss");
+                    public static readonly string _bounce_to_bottom_scss = Url("_bounce-to-bottom.scss");
+                    public static readonly string _bounce_to_left_scss = Url("_bounce-to-left.scss");
+                    public static readonly string _bounce_to_right_scss = Url("_bounce-to-right.scss");
+                    public static readonly string _bounce_to_top_scss = Url("_bounce-to-top.scss");
+                    public static readonly string _fade_scss = Url("_fade.scss");
+                    public static readonly string _radial_in_scss = Url("_radial-in.scss");
+                    public static readonly string _radial_out_scss = Url("_radial-out.scss");
+                    public static readonly string _rectangle_in_scss = Url("_rectangle-in.scss");
+                    public static readonly string _rectangle_out_scss = Url("_rectangle-out.scss");
+                    public static readonly string _shutter_in_horizontal_scss = Url("_shutter-in-horizontal.scss");
+                    public static readonly string _shutter_in_vertical_scss = Url("_shutter-in-vertical.scss");
+                    public static readonly string _shutter_out_horizontal_scss = Url("_shutter-out-horizontal.scss");
+                    public static readonly string _shutter_out_vertical_scss = Url("_shutter-out-vertical.scss");
+                    public static readonly string _sweep_to_bottom_scss = Url("_sweep-to-bottom.scss");
+                    public static readonly string _sweep_to_left_scss = Url("_sweep-to-left.scss");
+                    public static readonly string _sweep_to_right_scss = Url("_sweep-to-right.scss");
+                    public static readonly string _sweep_to_top_scss = Url("_sweep-to-top.scss");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class border_transitions {
+                    private const string URLPATH = "~/Content/scss/effects/border-transitions";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _border_fade_scss = Url("_border-fade.scss");
+                    public static readonly string _hollow_scss = Url("_hollow.scss");
+                    public static readonly string _outline_in_scss = Url("_outline-in.scss");
+                    public static readonly string _outline_out_scss = Url("_outline-out.scss");
+                    public static readonly string _overline_from_center_scss = Url("_overline-from-center.scss");
+                    public static readonly string _overline_from_left_scss = Url("_overline-from-left.scss");
+                    public static readonly string _overline_from_right_scss = Url("_overline-from-right.scss");
+                    public static readonly string _overline_reveal_scss = Url("_overline-reveal.scss");
+                    public static readonly string _reveal_scss = Url("_reveal.scss");
+                    public static readonly string _ripple_in_scss = Url("_ripple-in.scss");
+                    public static readonly string _ripple_out_scss = Url("_ripple-out.scss");
+                    public static readonly string _round_corners_scss = Url("_round-corners.scss");
+                    public static readonly string _trim_scss = Url("_trim.scss");
+                    public static readonly string _underline_from_center_scss = Url("_underline-from-center.scss");
+                    public static readonly string _underline_from_left_scss = Url("_underline-from-left.scss");
+                    public static readonly string _underline_from_right_scss = Url("_underline-from-right.scss");
+                    public static readonly string _underline_reveal_scss = Url("_underline-reveal.scss");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class curls {
+                    private const string URLPATH = "~/Content/scss/effects/curls";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _curl_bottom_left_scss = Url("_curl-bottom-left.scss");
+                    public static readonly string _curl_bottom_right_scss = Url("_curl-bottom-right.scss");
+                    public static readonly string _curl_top_left_scss = Url("_curl-top-left.scss");
+                    public static readonly string _curl_top_right_scss = Url("_curl-top-right.scss");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class icons {
+                    private const string URLPATH = "~/Content/scss/effects/icons";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _icon_back_scss = Url("_icon-back.scss");
+                    public static readonly string _icon_bob_scss = Url("_icon-bob.scss");
+                    public static readonly string _icon_bounce_out_scss = Url("_icon-bounce-out.scss");
+                    public static readonly string _icon_bounce_scss = Url("_icon-bounce.scss");
+                    public static readonly string _icon_buzz_out_scss = Url("_icon-buzz-out.scss");
+                    public static readonly string _icon_buzz_scss = Url("_icon-buzz.scss");
+                    public static readonly string _icon_down_scss = Url("_icon-down.scss");
+                    public static readonly string _icon_drop_scss = Url("_icon-drop.scss");
+                    public static readonly string _icon_fade_scss = Url("_icon-fade.scss");
+                    public static readonly string _icon_float_away_scss = Url("_icon-float-away.scss");
+                    public static readonly string _icon_float_scss = Url("_icon-float.scss");
+                    public static readonly string _icon_forward_scss = Url("_icon-forward.scss");
+                    public static readonly string _icon_grow_rotate_scss = Url("_icon-grow-rotate.scss");
+                    public static readonly string _icon_grow_scss = Url("_icon-grow.scss");
+                    public static readonly string _icon_hang_scss = Url("_icon-hang.scss");
+                    public static readonly string _icon_pop_scss = Url("_icon-pop.scss");
+                    public static readonly string _icon_pulse_grow_scss = Url("_icon-pulse-grow.scss");
+                    public static readonly string _icon_pulse_shrink_scss = Url("_icon-pulse-shrink.scss");
+                    public static readonly string _icon_pulse_scss = Url("_icon-pulse.scss");
+                    public static readonly string _icon_push_scss = Url("_icon-push.scss");
+                    public static readonly string _icon_rotate_scss = Url("_icon-rotate.scss");
+                    public static readonly string _icon_shrink_scss = Url("_icon-shrink.scss");
+                    public static readonly string _icon_sink_away_scss = Url("_icon-sink-away.scss");
+                    public static readonly string _icon_sink_scss = Url("_icon-sink.scss");
+                    public static readonly string _icon_spin_scss = Url("_icon-spin.scss");
+                    public static readonly string _icon_up_scss = Url("_icon-up.scss");
+                    public static readonly string _icon_wobble_horizontal_scss = Url("_icon-wobble-horizontal.scss");
+                    public static readonly string _icon_wobble_vertical_scss = Url("_icon-wobble-vertical.scss");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class shadow_and_glow_transitions {
+                    private const string URLPATH = "~/Content/scss/effects/shadow-and-glow-transitions";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _box_shadow_inset_scss = Url("_box-shadow-inset.scss");
+                    public static readonly string _box_shadow_outset_scss = Url("_box-shadow-outset.scss");
+                    public static readonly string _float_shadow_scss = Url("_float-shadow.scss");
+                    public static readonly string _glow_scss = Url("_glow.scss");
+                    public static readonly string _grow_shadow_scss = Url("_grow-shadow.scss");
+                    public static readonly string _shadow_radial_scss = Url("_shadow-radial.scss");
+                    public static readonly string _shadow_scss = Url("_shadow.scss");
+                }
+            
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class speech_bubbles {
+                    private const string URLPATH = "~/Content/scss/effects/speech-bubbles";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string _bubble_bottom_scss = Url("_bubble-bottom.scss");
+                    public static readonly string _bubble_float_bottom_scss = Url("_bubble-float-bottom.scss");
+                    public static readonly string _bubble_float_left_scss = Url("_bubble-float-left.scss");
+                    public static readonly string _bubble_float_right_scss = Url("_bubble-float-right.scss");
+                    public static readonly string _bubble_float_top_scss = Url("_bubble-float-top.scss");
+                    public static readonly string _bubble_left_scss = Url("_bubble-left.scss");
+                    public static readonly string _bubble_right_scss = Url("_bubble-right.scss");
+                    public static readonly string _bubble_top_scss = Url("_bubble-top.scss");
+                }
+            
+            }
+        
+            public static readonly string hover_scss = Url("hover.scss");
         }
     
     }
@@ -124,6 +630,7 @@ namespace Links
         {
             public static class Assets
             {
+                public const string bootstrap_table_js = "~/scripts/bootstrap-table.js"; 
                 public const string bootstrap_js = "~/scripts/bootstrap.js"; 
                 public const string bootstrap_min_js = "~/scripts/bootstrap.min.js"; 
                 public const string html5shiv_js = "~/scripts/html5shiv.js"; 
@@ -136,27 +643,274 @@ namespace Links
                 public const string jquery_unobtrusive_ajax_min_js = "~/scripts/jquery.unobtrusive-ajax.min.js"; 
                 public const string jquery_validate_js = "~/scripts/jquery.validate.js"; 
                 public const string jquery_validate_min_js = "~/scripts/jquery.validate.min.js"; 
-                public const string jquery_validate_unobtrusive_custom_for_bootstrap_js = "~/scripts/jquery.validate.unobtrusive-custom-for-bootstrap.js"; 
                 public const string jquery_validate_unobtrusive_js = "~/scripts/jquery.validate.unobtrusive.js"; 
                 public const string jquery_validate_unobtrusive_min_js = "~/scripts/jquery.validate.unobtrusive.min.js"; 
+                public const string npm_js = "~/scripts/npm.js"; 
             }
         }
         public static partial class Content 
         {
+            public static partial class css 
+            {
+                public static class Assets
+                {
+                }
+            }
+            public static partial class extensions 
+            {
+                public static partial class cookie 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_cookie_js = "~/Content/extensions/cookie/bootstrap-table-cookie.js"; 
+                    }
+                }
+                public static partial class editable 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_editable_js = "~/Content/extensions/editable/bootstrap-table-editable.js"; 
+                    }
+                }
+                public static partial class export 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_export_js = "~/Content/extensions/export/bootstrap-table-export.js"; 
+                    }
+                }
+                public static partial class filter 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_filter_js = "~/Content/extensions/filter/bootstrap-table-filter.js"; 
+                    }
+                }
+                public static partial class filtercontrol 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_filtercontrol_js = "~/Content/extensions/filtercontrol/bootstrap-table-filtercontrol.js"; 
+                    }
+                }
+                public static partial class flatJSON 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_flatJSON_js = "~/Content/extensions/flatJSON/bootstrap-table-flatJSON.js"; 
+                    }
+                }
+                public static partial class keyevents 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_keyevents_js = "~/Content/extensions/keyevents/bootstrap-table-keyevents.js"; 
+                    }
+                }
+                public static partial class mobile 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_mobile_js = "~/Content/extensions/mobile/bootstrap-table-mobile.js"; 
+                    }
+                }
+                public static partial class naturalsorting 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_naturalsorting_js = "~/Content/extensions/naturalsorting/bootstrap-table-naturalsorting.js"; 
+                    }
+                }
+                public static partial class reorder 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_reorder_js = "~/Content/extensions/reorder/bootstrap-table-reorder.js"; 
+                    }
+                }
+                public static partial class resizable 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_resizable_js = "~/Content/extensions/resizable/bootstrap-table-resizable.js"; 
+                    }
+                }
+                public static partial class toolbar 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_table_toolbar_js = "~/Content/extensions/toolbar/bootstrap-table-toolbar.js"; 
+                    }
+                }
+                public static class Assets
+                {
+                }
+            }
             public static partial class images 
             {
                 public static class Assets
                 {
                 }
             }
+            public static partial class less 
+            {
+                public static partial class effects 
+                {
+                    public static partial class _2d_transitions 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class background_transitions 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class border_transitions 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class curls 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class icons 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class shadow_and_glow_transitions 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class speech_bubbles 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static class Assets
+                    {
+                    }
+                }
+                public static class Assets
+                {
+                }
+            }
+            public static partial class locale 
+            {
+                public static class Assets
+                {
+                    public const string bootstrap_table_ar_SA_js = "~/Content/locale/bootstrap-table-ar-SA.js"; 
+                    public const string bootstrap_table_cs_CZ_js = "~/Content/locale/bootstrap-table-cs-CZ.js"; 
+                    public const string bootstrap_table_da_DK_js = "~/Content/locale/bootstrap-table-da-DK.js"; 
+                    public const string bootstrap_table_de_DE_js = "~/Content/locale/bootstrap-table-de-DE.js"; 
+                    public const string bootstrap_table_el_GR_js = "~/Content/locale/bootstrap-table-el-GR.js"; 
+                    public const string bootstrap_table_en_US_js = "~/Content/locale/bootstrap-table-en-US.js"; 
+                    public const string bootstrap_table_es_AR_js = "~/Content/locale/bootstrap-table-es-AR.js"; 
+                    public const string bootstrap_table_es_CR_js = "~/Content/locale/bootstrap-table-es-CR.js"; 
+                    public const string bootstrap_table_es_MX_js = "~/Content/locale/bootstrap-table-es-MX.js"; 
+                    public const string bootstrap_table_es_NI_js = "~/Content/locale/bootstrap-table-es-NI.js"; 
+                    public const string bootstrap_table_es_SP_js = "~/Content/locale/bootstrap-table-es-SP.js"; 
+                    public const string bootstrap_table_fr_BE_js = "~/Content/locale/bootstrap-table-fr-BE.js"; 
+                    public const string bootstrap_table_fr_FR_js = "~/Content/locale/bootstrap-table-fr-FR.js"; 
+                    public const string bootstrap_table_hu_HU_js = "~/Content/locale/bootstrap-table-hu-HU.js"; 
+                    public const string bootstrap_table_it_IT_js = "~/Content/locale/bootstrap-table-it-IT.js"; 
+                    public const string bootstrap_table_ja_JP_js = "~/Content/locale/bootstrap-table-ja-JP.js"; 
+                    public const string bootstrap_table_ka_GE_js = "~/Content/locale/bootstrap-table-ka-GE.js"; 
+                    public const string bootstrap_table_ko_KR_js = "~/Content/locale/bootstrap-table-ko-KR.js"; 
+                    public const string bootstrap_table_ms_MY_js = "~/Content/locale/bootstrap-table-ms-MY.js"; 
+                    public const string bootstrap_table_nb_NO_js = "~/Content/locale/bootstrap-table-nb-NO.js"; 
+                    public const string bootstrap_table_nl_NL_js = "~/Content/locale/bootstrap-table-nl-NL.js"; 
+                    public const string bootstrap_table_pl_PL_js = "~/Content/locale/bootstrap-table-pl-PL.js"; 
+                    public const string bootstrap_table_pt_BR_js = "~/Content/locale/bootstrap-table-pt-BR.js"; 
+                    public const string bootstrap_table_pt_PT_js = "~/Content/locale/bootstrap-table-pt-PT.js"; 
+                    public const string bootstrap_table_ro_RO_js = "~/Content/locale/bootstrap-table-ro-RO.js"; 
+                    public const string bootstrap_table_ru_RU_js = "~/Content/locale/bootstrap-table-ru-RU.js"; 
+                    public const string bootstrap_table_sk_SK_js = "~/Content/locale/bootstrap-table-sk-SK.js"; 
+                    public const string bootstrap_table_sv_SE_js = "~/Content/locale/bootstrap-table-sv-SE.js"; 
+                    public const string bootstrap_table_th_TH_js = "~/Content/locale/bootstrap-table-th-TH.js"; 
+                    public const string bootstrap_table_tr_TR_js = "~/Content/locale/bootstrap-table-tr-TR.js"; 
+                    public const string bootstrap_table_uk_UA_js = "~/Content/locale/bootstrap-table-uk-UA.js"; 
+                    public const string bootstrap_table_ur_PK_js = "~/Content/locale/bootstrap-table-ur-PK.js"; 
+                    public const string bootstrap_table_vi_VN_js = "~/Content/locale/bootstrap-table-vi-VN.js"; 
+                    public const string bootstrap_table_zh_CN_js = "~/Content/locale/bootstrap-table-zh-CN.js"; 
+                    public const string bootstrap_table_zh_TW_js = "~/Content/locale/bootstrap-table-zh-TW.js"; 
+                }
+            }
+            public static partial class scss 
+            {
+                public static partial class effects 
+                {
+                    public static partial class _2d_transitions 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class background_transitions 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class border_transitions 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class curls 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class icons 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class shadow_and_glow_transitions 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static partial class speech_bubbles 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static class Assets
+                    {
+                    }
+                }
+                public static class Assets
+                {
+                }
+            }
             public static class Assets
             {
-                public const string body_css = "~/Content/body.css";
-                public const string bootstrap_mvc_validation_css = "~/Content/bootstrap-mvc-validation.css";
-                public const string bootstrap_responsive_css = "~/Content/bootstrap-responsive.css";
-                public const string bootstrap_responsive_min_css = "~/Content/bootstrap-responsive.min.css";
-                public const string bootstrap_css = "~/Content/bootstrap.css";
-                public const string bootstrap_min_css = "~/Content/bootstrap.min.css";
+                public const string animate_css = "~/Content/animate.css";
+                public const string animate_min_css = "~/Content/animate.min.css";
+                public const string bootstrap_table_css = "~/Content/bootstrap-table.css";
+                public const string bootstrap_theme_css = "~/Content/bootstrap-theme.css";
+                public const string font_awesome_css = "~/Content/font-awesome.css";
+                public const string font_awesome_min_css = "~/Content/font-awesome.min.css";
+                public const string hover_min_css = "~/Content/hover-min.css";
+                public const string hover_css = "~/Content/hover.css";
             }
         }
     }

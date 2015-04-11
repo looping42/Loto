@@ -22,15 +22,15 @@ using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 using T4MVC;
-namespace BootstrapMvcSample.Controllers
+namespace Loto.Controllers
 {
-    public partial class BootstrapBaseController
+    public partial class ResultatController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public BootstrapBaseController() { }
+        public ResultatController() { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        protected BootstrapBaseController(Dummy d) { }
+        protected ResultatController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected RedirectToRouteResult RedirectToAction(ActionResult result)
@@ -60,13 +60,13 @@ namespace BootstrapMvcSample.Controllers
 
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public BootstrapBaseController Actions { get { return MVC.BootstrapBase; } }
+        public ResultatController Actions { get { return MVC.Resultat; } }
         [GeneratedCode("T4MVC", "2.0")]
         public readonly string Area = "";
         [GeneratedCode("T4MVC", "2.0")]
-        public readonly string Name = "BootstrapBase";
+        public readonly string Name = "Resultat";
         [GeneratedCode("T4MVC", "2.0")]
-        public const string NameConst = "BootstrapBase";
+        public const string NameConst = "Resultat";
 
         static readonly ActionNamesClass s_actions = new ActionNamesClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -97,9 +97,9 @@ namespace BootstrapMvcSample.Controllers
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_BootstrapBaseController : BootstrapMvcSample.Controllers.BootstrapBaseController
+    public partial class T4MVC_ResultatController : Loto.Controllers.ResultatController
     {
-        public T4MVC_BootstrapBaseController() : base(Dummy.Instance) { }
+        public T4MVC_ResultatController() : base(Dummy.Instance) { }
 
     }
 }
