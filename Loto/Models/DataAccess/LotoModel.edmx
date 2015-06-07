@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LotoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="nouveau_loto">
+          <Key>
+            <PropertyRef Name="annee_numero_de_tirage" />
+          </Key>
+          <Property Name="annee_numero_de_tirage" Type="int" Nullable="false" />
+          <Property Name="jour_de_tirage" Type="varchar" MaxLength="50" />
+          <Property Name="date_de_tirage" Type="date" />
+          <Property Name="date_de_forclusion" Type="date" />
+          <Property Name="boule_1" Type="smallint" />
+          <Property Name="boule_2" Type="smallint" />
+          <Property Name="boule_3" Type="smallint" />
+          <Property Name="boule_4" Type="smallint" />
+          <Property Name="boule_5" Type="smallint" />
+          <Property Name="numero_chance" Type="smallint" />
+          <Property Name="combinaison_gagnante_en_ordre_croissant" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_de_gagnant_au_rang1" Type="int" />
+          <Property Name="rapport_du_rang1" Type="int" />
+          <Property Name="nombre_de_gagnant_au_rang2" Type="int" />
+          <Property Name="rapport_du_rang2" Type="int" />
+          <Property Name="nombre_de_gagnant_au_rang3" Type="int" />
+          <Property Name="rapport_du_rang3" Type="int" />
+          <Property Name="nombre_de_gagnant_au_rang4" Type="int" />
+          <Property Name="rapport_du_rang4" Type="int" />
+          <Property Name="nombre_de_gagnant_au_rang5" Type="int" />
+          <Property Name="rapport_du_rang5" Type="int" />
+          <Property Name="nombre_de_gagnant_au_rang6" Type="int" />
+          <Property Name="rapport_du_rang6" Type="int" />
+          <Property Name="numero_jokerplus" Type="varchar" MaxLength="50" />
+          <Property Name="devise" Type="varchar" MaxLength="50" />
+          <Property Name="Column 25" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="LotoModelStoreContainer">
+          <EntitySet Name="nouveau_loto" EntityType="Self.nouveau_loto" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LotoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="nouveau_loto">
+          <Key>
+            <PropertyRef Name="annee_numero_de_tirage" />
+          </Key>
+          <Property Name="annee_numero_de_tirage" Type="Int32" Nullable="false" />
+          <Property Name="jour_de_tirage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_de_tirage" Type="DateTime" Precision="0" />
+          <Property Name="date_de_forclusion" Type="DateTime" Precision="0" />
+          <Property Name="boule_1" Type="Int16" />
+          <Property Name="boule_2" Type="Int16" />
+          <Property Name="boule_3" Type="Int16" />
+          <Property Name="boule_4" Type="Int16" />
+          <Property Name="boule_5" Type="Int16" />
+          <Property Name="numero_chance" Type="Int16" />
+          <Property Name="combinaison_gagnante_en_ordre_croissant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_de_gagnant_au_rang1" Type="Int32" />
+          <Property Name="rapport_du_rang1" Type="Int32" />
+          <Property Name="nombre_de_gagnant_au_rang2" Type="Int32" />
+          <Property Name="rapport_du_rang2" Type="Int32" />
+          <Property Name="nombre_de_gagnant_au_rang3" Type="Int32" />
+          <Property Name="rapport_du_rang3" Type="Int32" />
+          <Property Name="nombre_de_gagnant_au_rang4" Type="Int32" />
+          <Property Name="rapport_du_rang4" Type="Int32" />
+          <Property Name="nombre_de_gagnant_au_rang5" Type="Int32" />
+          <Property Name="rapport_du_rang5" Type="Int32" />
+          <Property Name="nombre_de_gagnant_au_rang6" Type="Int32" />
+          <Property Name="rapport_du_rang6" Type="Int32" />
+          <Property Name="numero_jokerplus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="devise" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Column_25" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="LotoEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="nouveau_loto" EntityType="Self.nouveau_loto" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LotoModelStoreContainer" CdmEntityContainer="LotoEntities2">
+          <EntitySetMapping Name="nouveau_loto">
+            <EntityTypeMapping TypeName="LotoModel.nouveau_loto">
+              <MappingFragment StoreEntitySet="nouveau_loto">
+                <ScalarProperty Name="annee_numero_de_tirage" ColumnName="annee_numero_de_tirage" />
+                <ScalarProperty Name="jour_de_tirage" ColumnName="jour_de_tirage" />
+                <ScalarProperty Name="date_de_tirage" ColumnName="date_de_tirage" />
+                <ScalarProperty Name="date_de_forclusion" ColumnName="date_de_forclusion" />
+                <ScalarProperty Name="boule_1" ColumnName="boule_1" />
+                <ScalarProperty Name="boule_2" ColumnName="boule_2" />
+                <ScalarProperty Name="boule_3" ColumnName="boule_3" />
+                <ScalarProperty Name="boule_4" ColumnName="boule_4" />
+                <ScalarProperty Name="boule_5" ColumnName="boule_5" />
+                <ScalarProperty Name="numero_chance" ColumnName="numero_chance" />
+                <ScalarProperty Name="combinaison_gagnante_en_ordre_croissant" ColumnName="combinaison_gagnante_en_ordre_croissant" />
+                <ScalarProperty Name="nombre_de_gagnant_au_rang1" ColumnName="nombre_de_gagnant_au_rang1" />
+                <ScalarProperty Name="rapport_du_rang1" ColumnName="rapport_du_rang1" />
+                <ScalarProperty Name="nombre_de_gagnant_au_rang2" ColumnName="nombre_de_gagnant_au_rang2" />
+                <ScalarProperty Name="rapport_du_rang2" ColumnName="rapport_du_rang2" />
+                <ScalarProperty Name="nombre_de_gagnant_au_rang3" ColumnName="nombre_de_gagnant_au_rang3" />
+                <ScalarProperty Name="rapport_du_rang3" ColumnName="rapport_du_rang3" />
+                <ScalarProperty Name="nombre_de_gagnant_au_rang4" ColumnName="nombre_de_gagnant_au_rang4" />
+                <ScalarProperty Name="rapport_du_rang4" ColumnName="rapport_du_rang4" />
+                <ScalarProperty Name="nombre_de_gagnant_au_rang5" ColumnName="nombre_de_gagnant_au_rang5" />
+                <ScalarProperty Name="rapport_du_rang5" ColumnName="rapport_du_rang5" />
+                <ScalarProperty Name="nombre_de_gagnant_au_rang6" ColumnName="nombre_de_gagnant_au_rang6" />
+                <ScalarProperty Name="rapport_du_rang6" ColumnName="rapport_du_rang6" />
+                <ScalarProperty Name="numero_jokerplus" ColumnName="numero_jokerplus" />
+                <ScalarProperty Name="devise" ColumnName="devise" />
+                <ScalarProperty Name="Column_25" ColumnName="Column 25" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

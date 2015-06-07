@@ -1,8 +1,9 @@
 --Create database Loto
-
+drop table newloto;
 
 Create Table newloto
 (
+annee_numero_de_tirage int,
 jourtirage varchar(20),
 date_de_tirage date primary key,
 date_de_forclusion date ,
@@ -25,13 +26,36 @@ nombre_de_gagnant_au_rang5 int,
 rapport_du_rang5	int, 
 nombre_de_gagnant_au_rang6	int, 
 rapport_du_rang6	int ,
-numero_jokerplus	int ,
+numero_jokerplus	varchar(20) ,
 devise varchar( 20),
 
 );
 
-create oldloto
-(  
 
 
-)
+ALTER TABLE dbo.nouveau_loto
+ADD PRIMARY KEY (annee_numero_de_tirage)
+
+BEGIN TRANSACTION
+BEGIN TRY
+BULK INSERT newloto
+   FROM 'E:\projetvisualstudio\Loto\ResultatLoto\nouveau_loto.csv'
+   WITH 
+      (
+	  FIRSTROW = 2,
+		MAXERRORS  =50,
+         FIELDTERMINATOR =';',
+         ROWTERMINATOR = ' ' 
+		
+      );
+COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+ROLLBACK TRANSACTION
+END CATCH
+
+--create oldloto
+--(  
+
+
+--)

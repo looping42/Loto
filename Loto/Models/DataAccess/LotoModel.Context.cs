@@ -13,10 +13,10 @@ namespace Loto.Models.DataAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class lotoEntities : DbContext
+    public partial class LotoEntities2 : DbContext
     {
-        public lotoEntities()
-            : base("name=lotoEntities")
+        public LotoEntities2()
+            : base("name=LotoEntities2")
         {
         }
     
@@ -25,8 +25,6 @@ namespace Loto.Models.DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<lto_probabilite> lto_probabilite { get; set; }
-        public virtual DbSet<lto_utilisateur> lto_utilisateur { get; set; }
-        public virtual DbSet<lto_tirage> lto_tirage { get; set; }
+        public virtual DbSet<nouveau_loto> nouveau_loto { get; set; }
     }
 }

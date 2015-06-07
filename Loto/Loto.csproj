@@ -49,6 +49,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Mvc">
       <HintPath>..\packages\Mvc4Futures.4.0.20710.0\lib\net40\Microsoft.Web.Mvc.dll</HintPath>
@@ -156,29 +159,24 @@
     <Compile Include="HomeController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataAccess\lto_probabilite.cs">
-      <DependentUpon>MySqlLoto.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataAccess\lto_tirage.cs">
-      <DependentUpon>MySqlLoto.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataAccess\lto_utilisateur.cs">
-      <DependentUpon>MySqlLoto.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataAccess\MySqlLoto.Context.cs">
+    <Compile Include="Models\Constant.cs" />
+    <Compile Include="Models\DataAccess\LotoModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MySqlLoto.Context.tt</DependentUpon>
+      <DependentUpon>LotoModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataAccess\MySqlLoto.cs">
+    <Compile Include="Models\DataAccess\LotoModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MySqlLoto.tt</DependentUpon>
+      <DependentUpon>LotoModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataAccess\MySqlLoto.Designer.cs">
+    <Compile Include="Models\DataAccess\LotoModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MySqlLoto.edmx</DependentUpon>
+      <DependentUpon>LotoModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataAccess\nouveau_loto.cs">
+      <DependentUpon>LotoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResultatModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
@@ -195,7 +193,7 @@
     <Compile Include="ResultatController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
-    <Compile Include="sharedController.generated.cs">
+    <Compile Include="SharedController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="T4MVC.cs">
@@ -458,29 +456,29 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
-    <EntityDeploy Include="Models\DataAccess\MySqlLoto.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MySqlLoto.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DataAccess\MySqlLoto.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MySqlLoto.edmx</DependentUpon>
-      <LastGenOutput>MySqlLoto.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DataAccess\MySqlLoto.edmx.diagram">
-      <DependentUpon>MySqlLoto.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\DataAccess\MySqlLoto.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MySqlLoto.edmx</DependentUpon>
-      <LastGenOutput>MySqlLoto.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <EntityDeploy Include="Models\DataAccess\LotoModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LotoModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataAccess\LotoModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LotoModel.edmx</DependentUpon>
+      <LastGenOutput>LotoModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataAccess\LotoModel.edmx.diagram">
+      <DependentUpon>LotoModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DataAccess\LotoModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LotoModel.edmx</DependentUpon>
+      <LastGenOutput>LotoModel.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

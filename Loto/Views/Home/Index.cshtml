@@ -2,6 +2,7 @@
 @{
 
 }
+
 <form role="form">
     ...
     <div class="checkbox checkbox-success">
@@ -29,6 +30,7 @@
     ...
 </form>
 <a href="#" class="hvr-grow">Add to Basket</a>
+
 
 <div class="panel panel-success">
     <div class="panel-heading">
@@ -79,25 +81,26 @@
                             <tr>
                                 <td></td>
                                 @*<td>@item..ToShortDateString()</td>*@
-                                <td>@item.pro_boule1</td>
-                                <td>@item.pro_boule2</td>
-                                <td>@item.pro_boule3</td>
-                                <td>@item.pro_boule4</td>
-                                <td>@item.pro_boule5</td>
-                                <td>@item.pro_numeroChance</td>
-                                <td>@item.pro_numeroJokerplus</td>
-                                <td>@item.pro_combinaisonGagnanteCroissant</td>
+                                <td>@item.boule_1</td>
+                                <td>@item.boule_2</td>
+                                <td>@item.boule_3</td>
+                                <td>@item.boule_4</td>
+                                <td>@item.boule_5</td>
+                                <td>@item.numero_chance</td>
+                                <td>@item.combinaison_gagnante_en_ordre_croissant</td>
+                                <td>@item.nombre_de_gagnant_au_rang1</td>                     
                             </tr>
                         }
                     </tbody>
                 </table>
+          
             </div>
         </div>
     </div>
 </div>
 
 
-<table class="table table-hover">
+@*<table class="table table-hover">
     <thead>
         <tr>
             <th>
@@ -145,4 +148,4 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@

@@ -26,10 +26,10 @@ namespace Loto.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=loto;Convert Zero Datetime=True")]
-        public string MySqlConnexion {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DENIS-PC;Initial Catalog=loto;Integrated Security=True")]
+        public string SqlConnexion {
             get {
-                return ((string)(this["MySqlConnexion"]));
+                return ((string)(this["SqlConnexion"]));
             }
         }
         

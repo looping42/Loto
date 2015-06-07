@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Loto.Models;
 using Loto.Models.DataAccess;
+using HtmlAgilityPack;
 
 namespace Loto.Controllers
 {
@@ -15,7 +16,7 @@ namespace Loto.Controllers
             ResultatModel model = new ResultatModel();
             model.ListResultatLoto();
             model.ListResultatProbablite();
-                                  
+            model.ResearchResultLoto();
             return View(model);
         }
 
